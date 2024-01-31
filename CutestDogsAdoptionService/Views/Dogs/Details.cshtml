@@ -1,0 +1,82 @@
+﻿@* @model DogModel
+
+@if (Model == null)
+{
+    <h1>Dog not found...</h1>
+}
+else
+{
+    
+    <img src="~/images/@Model.Image" style="width:200px" />
+<div>
+<label>Name:</label>
+
+<span>@Model.Name</span>
+
+    </div>
+
+    <div>
+        <label>Favourite Food::</label>
+
+        <span>@Model.FavFood</span>
+
+    </div>
+
+    <div>
+        <label>Temprament:</label>
+
+        <span>@Model.Temperament</span>
+
+    </div>
+
+
+    <div>
+        <label>Cuteness:</label>
+
+        <span>@Model.Cuteness</span>
+
+    </div>
+
+
+    @if (Model.IsAdopted)
+    {
+        <h3>This dog found a happy home</h3>
+    }
+    else
+    {
+        <br />
+        //man kan styla a länkar till knappar genom att styla den med bootstrap
+        <a class="btn btn-primary" asp-route-id="@Model.Id" asp-controller="Dogs" asp-action="Adopt">Adopt Dog</a>
+    }
+} *@
+
+@model DogModel
+
+@if (Model == null)
+{
+    <h1>Dog not found</h1>
+}
+else
+{
+    <img src="~/images/@Model.Image" style="width:200px" />
+    <div><label>Name: </label><span>@Model.Name</span></div>
+    <div><label>Favorite food: </label><span>@Model.FavFood</span></div>
+    <div><label>Favorite toy: </label><span>@Model.FavToy</span></div>
+    <div><label>Temperament: </label><span>@Model.Temperament</span></div>
+    <div><label>Cuteness: </label><span>@Model.Cuteness</span></div>
+
+    @if (Model.IsAdopted)
+    {
+        <h3>This dog found a happy home</h3>
+    }
+    else
+    {
+        <br />
+        <a class="btn btn-primary" asp-route-id="@Model.Id" asp-controller="Dogs" asp-action="Adopt">Adopt dog!</a>
+    }
+
+
+}
+
+<a asp-controller="Dogs" asp-action="Index">Go back to all dogs</a>
+

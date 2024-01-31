@@ -1,0 +1,13 @@
+﻿@model DogModel
+
+@if (Model == null)
+{
+    <h1>Could not find dog</h1>
+}
+else
+{
+    <img src="~/images/@Model.Image" />
+    <h1>Thank you for adopting this dog!</h1>
+}
+
+<a asp-controller="Dogs" asp-action="Index">Go back to all dogs</a>
